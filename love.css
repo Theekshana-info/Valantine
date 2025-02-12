@@ -89,15 +89,16 @@ body {
   }
 
   .comment-box {
+    height: 100px;
     margin-top: 100px;
     position: fixed;
     bottom: 6px;
-    right: 10px;
+    right: 6px;
     background: linear-gradient(145deg, #ff9a9e, #fecfef);
     padding: 15px;
     border-radius: 15px;
-    width: 300px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    width: 200px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
     z-index: 1000;
     transform: translateY(20px);
     animation: floatUp 0.5s ease-out forwards;
@@ -122,9 +123,9 @@ body {
 
   textarea {
     margin-right: auto;
-    width: 80%;
-    height: 10px;
-    padding: 12px;
+    width: 70%;
+    height: 4px;
+    padding: 9px;
     border: 3px solid #ff4d4d;
     border-radius: 10px;
     margin-bottom: 3px;
@@ -151,7 +152,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 4px;
     transition: transform 0.2s ease;
   }
 
@@ -180,7 +181,7 @@ body {
     opacity: 0;
     visibility: hidden;
     z-index: 9999;
-    animation: fadeInUp 0.8s ease-out forwards, fadeOutDown 0.8s ease-out 4.5s forwards;
+    animation: fadeInUp 0.8s ease-out forwards, fadeOutDown 0.3s ease-out 5s forwards;
   }
   
   @keyframes fadeInUp {
