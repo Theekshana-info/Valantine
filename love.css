@@ -170,7 +170,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(145deg, #ff9a9e, #fecfef);
+    background: linear-gradient(145deg, #482627, #393237);
     color: white;
     padding: 20px 40px;
     border-radius: 15px;
@@ -180,7 +180,7 @@ body {
     opacity: 0;
     visibility: hidden;
     z-index: 9999;
-    animation: fadeInUp 0.7s ease-out forwards, fadeOutDown 0.7s ease-out 3.5s forwards;
+    animation: fadeInUp 0.8s ease-out forwards, fadeOutDown 0.8s ease-out 4.5s forwards;
   }
   
   @keyframes fadeInUp {
