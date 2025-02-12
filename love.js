@@ -1,4 +1,4 @@
-// Your Firebase config (replace with your actual config)
+// Firebase config 
 const firebaseConfig = {
     apiKey: "AIzaSyAL39oiv3ajje0CyxhPr05pDjwGpWGfTlA",
     authDomain: "tine-3badd.firebaseapp.com",
@@ -25,11 +25,11 @@ const firebaseConfig = {
       return "You are not allowed to back. Try restarting the entire website.";
     }
 
-    // When the page content is loaded, add the fade-in class
+    
     document.addEventListener('DOMContentLoaded', function () {
       document.body.classList.add('fade-in');
       
-      // Retrieve the stored name from localStorage and update the heading
+    
       const userName = localStorage.getItem('valentineName');
       const heading = document.getElementById('loveMessage');
       if (userName) {
@@ -37,7 +37,7 @@ const firebaseConfig = {
       }
     });
 
-    // Function to create floating flower emojis
+    
     function createFlower() {
       const flower = document.createElement('div');
       flower.className = `flower ${['small', 'medium', 'large'][Math.floor(Math.random() * 3)]}`;
@@ -48,39 +48,45 @@ const firebaseConfig = {
       document.body.appendChild(flower);
     }
 
-    // Create 25 floating flowers
+    
     for (let i = 0; i < 20; i++) {
       createFlower();
     }
 
-    // Function to handle message submission
+    
     function submitMessage() {
-  const messageInput = document.getElementById('messageInput');
-  const message = messageInput.value.trim();
-  const userName = localStorage.getItem('valentineName') || 'Anonymous';
-
-  if (message === '') {
-    alert('Please type something to send.');
-    return;
-  }
-
-  // Send to Firebase
-  db.collection("valentineData").add({
-    type: "ideaSubmission",
-    name: userName,
-    idea: message,
-    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  })
-  .then(() => {
-    document.body.classList.add('fade-out');
-    setTimeout(() => {
-      alert('Thank you for your message!');
-      document.body.classList.remove('fade-out');
-      messageInput.value = '';
-    }, 200);
-  })
-  .catch((error) => {
-    console.error("Error writing document: ", error);
-    alert('Failed to submit message. Please try again.');
-  });
-}
+      const messageInput = document.getElementById('messageInput');
+      const message = messageInput.value.trim();
+      const userName = localStorage.getItem('valentineName') || 'Anonymous';
+    
+      if (message === '') {
+        alert('Please type something to send.');
+        return;
+      }
+    
+      // Send to Firebase
+      db.collection("valentineData").add({
+        type: "ideaSubmission",
+        name: userName,
+        idea: message,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(() => {
+        // custom alert
+        const alert = document.createElement('div');
+        alert.className = 'custom-alert';
+        alert.innerHTML = 'Thanks for your message! It was sent! 💌';
+        document.body.appendChild(alert);
+    
+        // Remove the alert after animation
+        setTimeout(() => {
+          alert.remove();
+        }, 3000);
+    
+        messageInput.value = '';
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+        alert('Failed to submit message. Please try again.');
+      });
+    }
