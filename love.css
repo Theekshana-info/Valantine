@@ -163,3 +163,46 @@ body {
   .submit-btn:active {
     transform: translateY(0);
   }
+
+  .custom-alert {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(145deg, #ff9a9e, #fecfef);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+    animation: fadeInUp 0.7s ease-out forwards, fadeOutDown 0.7s ease-out 3.5s forwards;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -40%);
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  @keyframes fadeOutDown {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, -60%);
+    }
+  }
