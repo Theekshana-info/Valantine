@@ -184,7 +184,7 @@ body {
     opacity: 0;
     visibility: hidden;
     z-index: 9999;
-    animation: fadeInUp 0.8s ease-out forwards, fadeOutDown 0.3s ease-out 5s forwards;
+    animation: fadeInUp 0.8s ease-out forwards, fadeOutDown 0.3s ease-out 7s forwards;
   }
   
   @keyframes fadeInUp {
